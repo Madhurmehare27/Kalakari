@@ -1,12 +1,11 @@
 "use client";
-
 export default function HomePage() {
 
   return (
   <>
-<div className="relative h-screen w-full overflow-hidden">
-<h1> home </h1>
-</div>
-</>
+    <div className="relative screen:w-[80%] w-[90%] mx-auto">
+    <h1> home </h1>
+    </div>
+   </>
   );
 }

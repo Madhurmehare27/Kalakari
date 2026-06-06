@@ -1,12 +1,15 @@
 "use client"
 
-export default function About()
+import About from "@/components/About"
+
+function AboutPage()
 {
     return (
 
         <>
-        <h1> hello i am madhur </h1>
+        <About/>
         </>
-
     )
 }
+
+export default AboutPage;
