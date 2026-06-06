@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Button from "./comman/Button";
+import Button from "./Button";
 import { ChevronDown, Menu, X } from "lucide-react";
 
 const navLinks = [
@@ -25,7 +25,6 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileShopOpen, setMobileShopOpen] = useState(false);
 
-  // Lock body scroll when drawer is open
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
@@ -33,7 +32,6 @@ const Navbar = () => {
 
   return (
     <>
-      {/* ── NAVBAR ─────────────────────────────────────── */}
       <nav className="sticky top-0 z-50 bg-gradient-to-b from-white/90 via-pink-50/80 to-white/70 backdrop-blur-md border-b border-pink-100 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
 
@@ -55,30 +53,57 @@ const Navbar = () => {
                 >
                   {link.label}
                 </Link>
-                {/* Underline */}
                 <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-pink-600 transition-all duration-300 group-hover:w-full" />
-                {/* Tooltip */}
                 <span className="absolute left-1/2 -translate-x-1/2 top-8 opacity-0 group-hover:opacity-100 bg-black text-white text-xs px-2 py-1 rounded whitespace-nowrap pointer-events-none transition-all duration-300 z-50">
                   {link.tooltip}
                 </span>
               </div>
             ))}
 
-            {/* Shop Mega Menu */}
+            {/* ── SHOP MEGA MENU — fixed ─────────────────── */}
+            {/* Key fix: added `invisible` as default + `group-hover:visible`
+                Also added `translate-y-2` default + `group-hover:translate-y-0`
+                for a smooth drop-down feel instead of just fading in */}
             <div className="relative group">
               <button className="flex items-center gap-1 text-gray-700 font-medium hover:text-pink-600 transition-all duration-300">
                 Shop
-                <ChevronDown size={16} className="transition-transform duration-300 group-hover:rotate-180" />
+                <ChevronDown
+                  size={16}
+                  className="transition-transform duration-300 group-hover:rotate-180"
+                />
               </button>
-              <span className="absolute left-0 -bottom-1  w-0 bg-pink-600 transition-all duration-300 group-hover:w-full" />
-              <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[1000px] bg-white rounded-2xl shadow-2xl border border-pink-100 p-6 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 grid grid-cols-3 gap-3 z-50">
+
+              {/* Animated underline */}
+              <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-pink-600 transition-all duration-300 group-hover:w-full" />
+
+              {/* Mega menu panel */}
+              <div
+                className="
+                  absolute top-[calc(100%+12px)] left-1/2 -translate-x-1/2
+                  w-[520px]
+                  bg-white rounded-2xl
+                  shadow-2xl border border-pink-100
+                  p-5
+                  grid grid-cols-2 gap-2
+                  z-50
+
+                  opacity-0 invisible translate-y-2
+                  transition-all duration-200 ease-out
+                  group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
+                "
+              >
+                {/* Little arrow pointer */}
+                <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white border-l border-t border-pink-100 rotate-45" />
+
                 {shopCategories.map((category) => (
                   <Link
                     key={category.href}
                     href={category.href}
-                    className="flex items-center gap-3 p-3 rounded-xl hover:bg-pink-50 hover:text-pink-600 transition-all duration-200 text-gray-700"
+                    className="flex items-center gap-3 p-3 rounded-xl hover:bg-pink-50 hover:text-pink-600 transition-all duration-200 text-gray-700 group/item"
                   >
-                    <span className="text-xl">{category.icon}</span>
+                    <span className="text-xl w-8 h-8 flex items-center justify-center bg-pink-50 rounded-lg group-hover/item:bg-pink-100 transition-colors duration-200 shrink-0">
+                      {category.icon}
+                    </span>
                     <span className="text-sm font-medium">{category.label}</span>
                   </Link>
                 ))}
@@ -88,7 +113,6 @@ const Navbar = () => {
 
           {/* Right side */}
           <div className="flex items-center gap-3">
-            {/* Desktop CTA */}
             <div className="hidden lg:block transition-transform duration-300 hover:scale-105">
               <Button
                 bgColor="#ec4899"
@@ -102,7 +126,6 @@ const Navbar = () => {
               </Button>
             </div>
 
-            {/* Mobile Hamburger */}
             <button
               className="lg:hidden p-2 rounded-lg text-gray-700 hover:text-pink-600 hover:bg-pink-50 transition-all duration-200"
               onClick={() => setMobileOpen(true)}
@@ -114,7 +137,7 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* ── OVERLAY ────────────────────────────────────── */}
+      {/* ── OVERLAY ──────────────────────────────────── */}
       <div
         className={`fixed inset-0 bg-black/40 z-50 lg:hidden transition-opacity duration-300 ${
           mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
@@ -122,9 +145,9 @@ const Navbar = () => {
         onClick={() => setMobileOpen(false)}
       />
 
-      {/* ── SLIDE-IN DRAWER ────────────────────────────── */}
+      {/* ── SLIDE-IN DRAWER ──────────────────────────── */}
       <div
-        className={`fixed top-0 right-0 h-full w-[300px] sm:w-[320px] bg-white z-50 flex flex-col lg:hidden shadow-2xl transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 right-0 h-full w-[300px] sm:w-[320px] bg-white z-[60] flex flex-col lg:hidden shadow-2xl transition-transform duration-300 ease-in-out ${
           mobileOpen ? "translate-x-0" : "translate-x-full"
         }`}
         style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
@@ -143,8 +166,6 @@ const Navbar = () => {
 
         {/* Drawer Links */}
         <div className="flex-1 overflow-y-auto px-3 py-4 space-y-0.5">
-
-          {/* Nav links */}
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -157,7 +178,6 @@ const Navbar = () => {
             </Link>
           ))}
 
-          {/* Divider */}
           <div className="h-px bg-pink-50 my-2 mx-4" />
 
           {/* Shop Accordion */}
@@ -175,7 +195,6 @@ const Navbar = () => {
               />
             </button>
 
-            {/* Accordion panel — smooth animated expand */}
             <div
               className={`overflow-hidden transition-all duration-300 ease-in-out ${
                 mobileShopOpen ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
