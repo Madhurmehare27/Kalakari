@@ -7,26 +7,8 @@ export default function Gallery() {
     <main className="min-h-screen bg-gradient-to-b from-pink-50 via-white to-white">
       {/* Hero Section */}
       <AdvertisingBanner/>
-      <section className="relative py-20 px-6">
-        <div className="max-w-7xl mx-auto text-center">
-          <span className="inline-block px-4 py-2 mb-4 text-sm font-medium text-pink-700 bg-pink-100 rounded-full">
-            ✨ Handmade Collection
-          </span>
-
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900">
-            Our Gallery
-          </h1>
-
-          <p className="mt-6 max-w-3xl mx-auto text-lg text-gray-600">
-            Explore our handcrafted creations made with creativity,
-            passion, and attention to detail. Every product is uniquely
-            designed to bring joy and elegance to your special moments.
-          </p>
-        </div>
-      </section>
-
       {/* Product Section */}
-      <section className="pb-20">
+      <section className="pb-10">
         <div className="max-w-7xl mx-auto px-6">
           <ProductList />
         </div>

@@ -10,7 +10,7 @@ export default function AdvertisingBanner() {
   "🔥 Special Festival Discounts",
 ];
   return (
-    <div className="w-full bg-pink-600 text-white overflow-hidden ">
+    <div className="w-full bg-pink-600 text-white overflow-hidden py-2">
       <div className="flex whitespace-nowrap animate-marquee">
         {[...ads, ...ads].map((ad, index) => (
           <span

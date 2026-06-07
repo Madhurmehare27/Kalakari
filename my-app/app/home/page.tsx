@@ -67,7 +67,7 @@ export default function HeroSection() {
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-4">
               <img
-                src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0ea"
+                src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1"
                 alt="Craft"
                 className="rounded-3xl h-72 w-full object-cover shadow-xl"
               />
