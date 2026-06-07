@@ -1,5 +1,13 @@
 "use client";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation } from "swiper/modules";
+
+import { Card, CardContent } from "@/components/ui/card"
+import { Button } from "@/components/ui/button";
+
+import "swiper/css";
+import "swiper/css/navigation";
 export default function ProductList() {
   const products = [
     {
@@ -54,7 +62,7 @@ export default function ProductList() {
 
   const whatsappNumber = "917820941097";
 
-  const handleOrder = (productName:any) => {
+  const handleOrder = (productName: string) => {
     const message = encodeURIComponent(
       `Hello 👋
 
@@ -69,66 +77,81 @@ Can you please share more details?`
   };
 
   return (
-    <section className="py-12 md:py-20 bg-gray-50">
+    <section className="py-16 md:py-24 bg-[#F8F6F1]">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         {/* Heading */}
-        <div className="text-center mb-10 md:mb-14">
-          <span className="inline-block px-4 py-2 rounded-full bg-pink-100 text-pink-700 text-sm font-medium mb-4">
+        <div className="text-center mb-12 md:mb-16">
+          <span className="inline-flex items-center rounded-full bg-[#233603]/10 px-4 py-2 text-sm font-medium text-[#233603]">
             Handmade Collection
           </span>
 
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900">
+          <h2 className="mt-5 text-3xl md:text-5xl font-bold text-gray-900">
             Our Best Creations
           </h2>
 
-          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-            Explore our handcrafted products designed with creativity,
-            passion, and attention to detail.
-          </p>
         </div>
 
-        {/* Product Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-          {products.map((product) => (
-            <div
-              key={product.id}
-              className="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300"
-            >
-              {/* Product Image */}
-              <div className="relative overflow-hidden">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-40 md:h-56 object-cover hover:scale-105 transition-transform duration-500"
-                />
+        {/* Product Slider */}
+    <Swiper
+  spaceBetween={24}
+  grabCursor={true}
+  breakpoints={{
+    320: {
+      slidesPerView: 1.2,
+    },
+    640: {
+      slidesPerView: 2,
+    },
+    768: {
+      slidesPerView: 3,
+    },
+    1024: {
+      slidesPerView: 4,
+    },
+  }}
+>
+  {products.map((product) => (
+    <SwiperSlide key={product.id} className="h-auto">
+      <Card className="group h-full overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+        
+        {/* Product Image */}
+        <div className="relative h-[300px] overflow-hidden bg-gray-100">
+          <img
+            src={product.image}
+            alt={product.name}
+            className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
 
-                <span className="absolute top-2 left-2 bg-pink-600 text-white text-[10px] md:text-xs px-2 py-1 rounded-full">
-                  {product.tag}
-                </span>
-              </div>
-
-              {/* Product Details */}
-              <div className="p-3 md:p-4">
-                <h3 className="font-semibold text-sm md:text-lg text-gray-900 line-clamp-2 min-h-[40px]">
-                  {product.name}
-                </h3>
-
-                <div className="flex items-center justify-between mt-4">
-                  <p className="text-pink-600 font-bold text-sm md:text-xl">
-                    {product.price}
-                  </p>
-
-                  <button
-                    onClick={() => handleOrder(product.name)}
-                    className="bg-green-500 hover:bg-green-600 text-white text-xs md:text-sm px-3 py-2 rounded-lg transition"
-                  >
-                    Order
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
+          <span className="absolute bottom-3 left-3 bg-[#233603] text-white text-xs font-medium px-3 py-1 rounded-full shadow-md">
+            {product.tag}
+          </span>
         </div>
+
+        {/* Product Content */}
+        <CardContent className="flex flex-col justify-between min-h-[180px] p-4 md:p-5">
+          
+          <div>
+            <h3 className="text-sm md:text-lg font-medium text-gray-800 line-clamp-2 h-14">
+              {product.name}
+            </h3>
+
+            <p className="mt-3 text-[#233603] font-bold text-lg md:text-2xl">
+              {product.price}
+            </p>
+          </div>
+
+          <Button
+            onClick={() => handleOrder(product.name)}
+            className="mt-4 w-full bg-[#233603] hover:bg-[#304a05] text-white rounded-full"
+          >
+            Order Now
+          </Button>
+
+        </CardContent>
+      </Card>
+    </SwiperSlide>
+  ))}
+</Swiper>
       </div>
     </section>
   );
