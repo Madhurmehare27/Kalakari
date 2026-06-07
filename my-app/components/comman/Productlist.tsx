@@ -54,7 +54,7 @@ export default function ProductList() {
 
   const whatsappNumber = "917820941097";
 
-  const handleOrder = (productName) => {
+  const handleOrder = (productName:any) => {
     const message = encodeURIComponent(
       `Hello 👋
 
