@@ -71,7 +71,7 @@ const Footer = () => {
                 transition-colors duration-200
               "
             />
-            <button
+            {/* <button
               type="submit"
               className="
                 px-5 py-2.5
@@ -82,7 +82,7 @@ const Footer = () => {
               "
             >
               Subscribe
-            </button>
+            </button> */}
           </form>
         </div>
       </div>

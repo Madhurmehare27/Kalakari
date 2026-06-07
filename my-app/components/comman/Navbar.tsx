@@ -12,16 +12,16 @@ const navLinks = [
   {label:"Gallery",href:"/gallery",tooltip:"gallery-us"}
 ];
 
-const shopCategories = [
-  { label: "Paintings", href: "/shop/paintings", icon: "🎨" },
-  { label: "Handicrafts", href: "/shop/handicrafts", icon: "🏺" },
-  { label: "Pottery", href: "/shop/pottery", icon: "🫙" },
-  { label: "Wall Art", href: "/shop/wall-art", icon: "🖼️" },
-  { label: "Home Decor", href: "/shop/home-decor", icon: "🏠" },
-  { label: "Jewellery", href: "/shop/jewellery", icon: "💎" },
-  { label: "Gifts", href: "/shop/gifts", icon: "🎁" },
-  { label: "Custom Artwork", href: "/shop/custom-artwork", icon: "✨" },
-];
+// const shopCategories = [
+//   { label: "Paintings", href: "/shop/paintings", icon: "🎨" },
+//   { label: "Handicrafts", href: "/shop/handicrafts", icon: "🏺" },
+//   { label: "Pottery", href: "/shop/pottery", icon: "🫙" },
+//   { label: "Wall Art", href: "/shop/wall-art", icon: "🖼️" },
+//   { label: "Home Decor", href: "/shop/home-decor", icon: "🏠" },
+//   { label: "Jewellery", href: "/shop/jewellery", icon: "💎" },
+//   { label: "Gifts", href: "/shop/gifts", icon: "🎁" },
+//   { label: "Custom Artwork", href: "/shop/custom-artwork", icon: "✨" },
+// ];
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -38,12 +38,13 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
 
           {/* Logo */}
-          <Link
-            href="/"
-            className="text-2xl sm:text-3xl font-extrabold text-pink-600 hover:text-pink-700 transition-all duration-300 hover:scale-105"
-          >
-            Kalakari
-          </Link>
+         <Link
+  href="/"
+  className="text-2xl sm:text-3xl font-italic transition-all duration-300 hover:scale-105"
+  style={{ color: "#233603" }}
+>
+  Kalakari
+</Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
@@ -67,13 +68,13 @@ const Navbar = () => {
                 Also added `translate-y-2` default + `group-hover:translate-y-0`
                 for a smooth drop-down feel instead of just fading in */}
             <div className="relative group">
-              <button className="flex items-center gap-1 text-gray-700 font-medium hover:text-pink-600 transition-all duration-300">
+              {/* <button className="flex items-center gap-1 text-gray-700 font-medium hover:text-pink-600 transition-all duration-300">
                 Shop
                 <ChevronDown
                   size={16}
                   className="transition-transform duration-300 group-hover:rotate-180"
                 />
-              </button>
+              </button> */}
 
               {/* Animated underline */}
               <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-pink-600 transition-all duration-300 group-hover:w-full" />
@@ -97,7 +98,7 @@ const Navbar = () => {
                 {/* Little arrow pointer */}
                 <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white border-l border-t border-pink-100 rotate-45" />
 
-                {shopCategories.map((category) => (
+                {/* {shopCategories.map((category) => (
                   <Link
                     key={category.href}
                     href={category.href}
@@ -108,7 +109,7 @@ const Navbar = () => {
                     </span>
                     <span className="text-sm font-medium">{category.label}</span>
                   </Link>
-                ))}
+                ))} */}
               </div>
             </div>
           </div>
@@ -116,7 +117,7 @@ const Navbar = () => {
           {/* Right side */}
           <div className="flex items-center gap-3">
            <Button
-  bgColor="#ec4899"
+   bgColor="#233603"
   textColor="#ffffff"
   width="100%"
   height="48px"
@@ -207,7 +208,7 @@ const Navbar = () => {
               }`}
             >
               <div className="mx-3 mb-2 bg-pink-50/60 rounded-xl p-2 grid grid-cols-2 gap-1">
-                {shopCategories.map((category) => (
+                {/* {shopCategories.map((category) => (
                   <Link
                     key={category.href}
                     href={category.href}
@@ -217,7 +218,7 @@ const Navbar = () => {
                     <span className="text-base">{category.icon}</span>
                     <span className="font-medium truncate">{category.label}</span>
                   </Link>
-                ))}
+                ))} */}
               </div>
             </div>
           </div>
@@ -226,7 +227,7 @@ const Navbar = () => {
         {/* Drawer Footer CTA */}
         <div className="shrink-0 px-5 py-4 border-t border-pink-100">
         <Button
-  bgColor="#ec4899"
+  bgColor="#233603"
   textColor="#ffffff"
   width="100%"
   height="48px"

@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/comman/Navbar";
 import Footer from "@/components/comman/Footer";
 import TopBanner from "@/components/comman/TopBanner";
+import AdvertisingBanner from "@/components/comman/AdvertisingBanner";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -32,7 +33,7 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col bg-gray-50">
         <TopBanner/>
         <Navbar />
-
+{/* <AdvertisingBanner/> */}
         <main className="flex-1">
           {children}
         </main>
