@@ -35,8 +35,10 @@ export default function HeroSection() {
   return (
     <section className="bg-[#F8F6F1]">
       {/* Hero Slider */}
+     
       <FullScreenVideo />
-
+       <ProductList />
+ 
       {/* Categories */}
       <div className="max-w-7xl mx-auto px-4 py-16">
         <div className="text-center mb-12">
@@ -85,7 +87,7 @@ export default function HeroSection() {
       </div>
 
       {/* Products */}
-      <ProductList />
+     
     </section>
   );
 }
