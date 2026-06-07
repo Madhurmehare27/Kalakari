@@ -2,29 +2,19 @@
 
 import { useState } from "react";
 import Link from "next/link";
-
-// In a real app, fetch this by ID from your data source / API
-const product = {
-  id: 1,
-  name: "Resin Name Plate",
-  price: 799,
-  tag: "Best Seller",
-  rating: 4.9,
-  reviews: 128,
-  delivery: "3–5 days",
-  customizable: "Any color",
-  description:
-    "A beautifully handcrafted resin name plate made entirely to order. Choose your name, preferred color palette, and size. Perfect for home décor, office desks, and gifting.",
-  sizes: ["Small", "Medium", "Large"],
-  image:
-    "https://images.unsplash.com/photo-1513475382585-d06e58bcb0ea?w=800&q=80",
-  category: "Resin",
-};
+import type { Product } from "@/lib/products";
 
 const whatsappNumber = "917820941097";
 
-export default function ProductDetail() {
-  const [selectedSize, setSelectedSize] = useState("Small");
+const WhatsAppIcon = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.113.554 4.094 1.523 5.815L0 24l6.335-1.499A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.667-.507-5.197-1.395l-.371-.22-3.763.891.946-3.657-.242-.378A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" />
+  </svg>
+);
+
+export default function ProductDetail({ product }: { product: Product }) {
+  const [selectedSize, setSelectedSize] = useState(product.sizes[0]);
   const [wishlisted, setWishlisted] = useState(false);
 
   const handleOrder = () => {
@@ -51,14 +41,7 @@ export default function ProductDetail() {
           className="absolute top-4 left-4 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center border border-gray-100 shadow-sm hover:bg-white transition"
           aria-label="Go back"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-5 h-5 text-[#233603]"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
+          <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-[#233603]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
           </svg>
         </Link>
@@ -71,19 +54,13 @@ export default function ProductDetail() {
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className={`w-5 h-5 transition-colors ${
-              wishlisted ? "text-rose-500 fill-rose-500" : "text-[#233603]"
-            }`}
+            className={`w-5 h-5 transition-colors ${wishlisted ? "text-rose-500 fill-rose-500" : "text-[#233603]"}`}
             viewBox="0 0 24 24"
             stroke="currentColor"
             strokeWidth={2}
             fill={wishlisted ? "currentColor" : "none"}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 20.364l-7.682-7.682a4.5 4.5 0 010-6.364z"
-            />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 20.364l-7.682-7.682a4.5 4.5 0 010-6.364z" />
           </svg>
         </button>
 
@@ -113,7 +90,7 @@ export default function ProductDetail() {
           </div>
         </div>
 
-        <p className="text-sm text-gray-400 mb-4">Handcrafted with premium resin</p>
+        <p className="text-sm text-gray-400 mb-4">Handcrafted · {product.category}</p>
 
         {/* Price */}
         <p className="text-2xl font-bold text-[#233603] mb-5">
@@ -175,7 +152,7 @@ export default function ProductDetail() {
           <h2 className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">
             Choose Size
           </h2>
-          <div className="flex gap-3">
+          <div className="flex flex-wrap gap-3">
             {product.sizes.map((size) => (
               <button
                 key={size}
@@ -195,23 +172,13 @@ export default function ProductDetail() {
 
       {/* ── Sticky Bottom CTA ── */}
       <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 px-5 py-4 flex gap-3 items-center max-w-2xl mx-auto w-full">
-
-        {/* WhatsApp icon button */}
+        {/* WhatsApp icon only button */}
         <button
           onClick={handleOrder}
           aria-label="Chat on WhatsApp"
           className="w-12 h-12 flex-shrink-0 rounded-2xl bg-[#F8F6F1] flex items-center justify-center border border-[#233603]/15 hover:bg-[#233603]/5 active:scale-95 transition-all"
         >
-          {/* WhatsApp SVG */}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-6 h-6"
-            viewBox="0 0 24 24"
-            fill="#25D366"
-          >
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
-            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.113.554 4.094 1.523 5.815L0 24l6.335-1.499A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.667-.507-5.197-1.395l-.371-.22-3.763.891.946-3.657-.242-.378A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" />
-          </svg>
+          <WhatsAppIcon className="w-6 h-6 text-[#25D366]" />
         </button>
 
         {/* Main CTA */}
@@ -219,15 +186,7 @@ export default function ProductDetail() {
           onClick={handleOrder}
           className="flex-1 bg-[#233603] hover:bg-[#304a05] active:scale-95 text-white font-semibold text-sm rounded-2xl h-12 flex items-center justify-center gap-2 transition-all duration-200 shadow-sm"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-4 h-4"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-          >
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
-            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.113.554 4.094 1.523 5.815L0 24l6.335-1.499A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.667-.507-5.197-1.395l-.371-.22-3.763.891.946-3.657-.242-.378A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" />
-          </svg>
+          <WhatsAppIcon className="w-4 h-4 text-white" />
           Order on WhatsApp
         </button>
       </div>
