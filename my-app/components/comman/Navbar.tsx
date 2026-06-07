@@ -3,11 +3,13 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Button from "./Button";
 import { ChevronDown, Menu, X } from "lucide-react";
+import { Tooltip } from "radix-ui";
 
 const navLinks = [
   { label: "Home", href: "/", tooltip: "Go to Home" },
   { label: "About", href: "/about", tooltip: "About Kalakari" },
   { label: "Contact", href: "/contact", tooltip: "Contact Us" },
+  {label:"Gallery",href:"/gallery",tooltip:"gallery-us"}
 ];
 
 const shopCategories = [
@@ -113,18 +115,22 @@ const Navbar = () => {
 
           {/* Right side */}
           <div className="flex items-center gap-3">
-            <div className="hidden lg:block transition-transform duration-300 hover:scale-105">
-              <Button
-                bgColor="#ec4899"
-                textColor="#ffffff"
-                width="140px"
-                height="44px"
-                borderRadius="999px"
-                onClick={() => alert("Order Now")}
-              >
-                Order Now
-              </Button>
-            </div>
+           <Button
+  bgColor="#ec4899"
+  textColor="#ffffff"
+  width="100%"
+  height="48px"
+  borderRadius="999px"
+  onClick={() => {
+    window.open(
+      "https://chat.whatsapp.com/HbT9krCD5qgFcbiDM6iP5W",
+      "_blank"
+    );
+    setMobileOpen(false);
+  }}
+>
+  Order Now
+</Button>
 
             <button
               className="lg:hidden p-2 rounded-lg text-gray-700 hover:text-pink-600 hover:bg-pink-50 transition-all duration-200"
@@ -219,16 +225,22 @@ const Navbar = () => {
 
         {/* Drawer Footer CTA */}
         <div className="shrink-0 px-5 py-4 border-t border-pink-100">
-          <Button
-            bgColor="#ec4899"
-            textColor="#ffffff"
-            width="100%"
-            height="48px"
-            borderRadius="999px"
-            onClick={() => { alert("Order Now"); setMobileOpen(false); }}
-          >
-            Order Now
-          </Button>
+        <Button
+  bgColor="#ec4899"
+  textColor="#ffffff"
+  width="100%"
+  height="48px"
+  borderRadius="999px"
+  onClick={() => {
+    window.open(
+      "https://chat.whatsapp.com/HbT9krCD5qgFcbiDM6iP5W",
+      "_blank"
+    );
+    setMobileOpen(false);
+  }}
+>
+  Order Now
+</Button>
         </div>
       </div>
     </>
