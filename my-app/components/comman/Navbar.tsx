@@ -52,11 +52,11 @@ const Navbar = () => {
               <div key={link.href} className="relative group">
                 <Link
                   href={link.href}
-                  className="text-gray-700 font-medium hover:text-pink-600 transition-all duration-300"
+                  className="text-gray-700 font-medium hover:text-black-600 transition-all duration-300"
                 >
                   {link.label}
                 </Link>
-                <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-pink-600 transition-all duration-300 group-hover:w-full" />
+                <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-black-600 transition-all duration-300 group-hover:w-full" />
                 <span className="absolute left-1/2 -translate-x-1/2 top-8 opacity-0 group-hover:opacity-100 bg-black text-white text-xs px-2 py-1 rounded whitespace-nowrap pointer-events-none transition-all duration-300 z-50">
                   {link.tooltip}
                 </span>
@@ -77,7 +77,7 @@ const Navbar = () => {
               </button> */}
 
               {/* Animated underline */}
-              <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-pink-600 transition-all duration-300 group-hover:w-full" />
+              <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-black-600 transition-all duration-300 group-hover:w-full" />
 
               {/* Mega menu panel */}
               <div
@@ -134,7 +134,7 @@ const Navbar = () => {
 </Button>
 
             <button
-              className="lg:hidden p-2 rounded-lg text-gray-700 hover:text-pink-600 hover:bg-pink-50 transition-all duration-200"
+              className="lg:hidden p-2 rounded-lg text-gray-700 hover:text-black-600 hover:bg-black-50 transition-all duration-200"
               onClick={() => setMobileOpen(true)}
               aria-label="Open menu"
             >
@@ -161,7 +161,9 @@ const Navbar = () => {
       >
         {/* Drawer Header */}
         <div className="flex items-center justify-between px-5 h-16 border-b border-pink-100 shrink-0">
-          <span className="text-2xl font-extrabold text-pink-600">Kalakari</span>
+          <span className="text-2xl  italic text-[#556B2F]">
+  Kalakari
+</span>
           <button
             className="p-2 rounded-lg text-gray-400 hover:text-pink-600 hover:bg-pink-50 transition-all duration-200"
             onClick={() => setMobileOpen(false)}
@@ -189,9 +191,9 @@ const Navbar = () => {
 
           {/* Shop Accordion */}
           <div>
-            <button
+            {/* <button
               onClick={() => setMobileShopOpen(!mobileShopOpen)}
-              className="w-full flex items-center justify-between px-4 py-3.5 rounded-xl text-gray-700 font-medium hover:bg-pink-50 hover:text-pink-600 transition-all duration-200 text-sm"
+              className="w-full flex items-center justify-between px-4 py-3.5 rounded-xl text-gray-700 font-medium hover:bg-black-50 hover:text-black-600 transition-all duration-200 text-sm"
             >
               <span>Shop</span>
               <ChevronDown
@@ -200,7 +202,7 @@ const Navbar = () => {
                   mobileShopOpen ? "rotate-180 text-pink-500" : "text-gray-300"
                 }`}
               />
-            </button>
+            </button> */}
 
             <div
               className={`overflow-hidden transition-all duration-300 ease-in-out ${
