@@ -319,3 +319,29 @@ export const products: Product[] = [
 export function getProductById(id: number): Product | null {
   return products.find((p) => p.id === id) ?? null;
 }
+const categories = [
+    {
+      name: "Flower Crafts",
+      slug: "flower-crafts",
+      image:
+        "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=800&q=80",
+    },
+    {
+      name: "Resin Art",
+      slug: "resin-art",
+      image:
+        "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=800&q=80",
+    },
+    {
+      name: "Gift Boxes",
+      slug: "gift-boxes",
+      image:
+        "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=800&q=80",
+    },
+    {
+      name: "Home Decor",
+      slug: "home-decor",
+      image:
+        "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=800&q=80",
+    },
+  ];
