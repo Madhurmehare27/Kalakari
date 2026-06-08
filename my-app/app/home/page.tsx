@@ -3,6 +3,7 @@
 import Link from "next/link";
 import FullScreenVideo from "@/components/comman/FullScreenVideo";
 import ProductList from "@/components/comman/Productlist";
+import CraftFlow from "@/components/comman/CraftFlow";
 
 export default function HeroSection() {
   const categories = [
@@ -34,24 +35,49 @@ export default function HeroSection() {
 
   return (
     <section className="bg-[#F8F6F1]">
-      {/* Hero Slider */}
-     
-      <FullScreenVideo />
-       <ProductList />
- 
-      {/* Categories */}
-      <div className="max-w-7xl mx-auto px-4 py-16">
-        <div className="text-center mb-12">
-          <span className="inline-flex items-center rounded-full bg-[#233603]/10 px-4 py-2 text-sm font-medium text-[#233603]">
-            Explore Categories
-          </span>
+      <div className=" py-4">
+        <div>
+          <div className="">
+            <a
+              href="#products"
+              className="px-5 py-2 rounded-full text-sm font-medium text-[#233603] hover:bg-[#233603] hover:text-white transition"
+            >
+              Products
+            </a>
 
-          <h2 className="mt-4 text-3xl md:text-5xl font-bold text-gray-900">
-            Shop By Category
-          </h2>
+            <a
+              href="#journey"
+              className="px-5 py-2 rounded-full text-sm font-medium text-[#233603] hover:bg-[#233603] hover:text-white transition"
+            >
+              Journey
+            </a>
+
+            <a
+              href="#categories"
+              className="px-5 py-2 rounded-full text-sm font-medium text-[#233603] hover:bg-[#233603] hover:text-white transition"
+            >
+              Categories
+            </a>
+          </div>
         </div>
+      </div>
+      {/* Hero Section */}
+      <FullScreenVideo />
 
-        <div className="grid grid-cols-2 gap-2 md:gap-2">
+      {/* Floating Navigation */}
+
+      {/* Products */}
+      <section id="products">
+        <ProductList />
+      </section>
+
+      {/* Journey */}
+      <section id="journey">
+        <CraftFlow />
+      </section>
+      <section id="categories">
+        {/* Categories */}
+        <div className="grid grid-cols-2 gap-2 md:gap-2 py-4">
           {categories.map((category, index) => (
             <Link
               key={category.slug}
@@ -76,7 +102,7 @@ export default function HeroSection() {
                     {category.name}
                   </h3>
 
-                  <h1 className="text-black/90 text-sm mt-1">
+                  <h1 className="text-white/90 text-sm mt-1">
                     View Collection →
                   </h1>
                 </div>
@@ -84,10 +110,7 @@ export default function HeroSection() {
             </Link>
           ))}
         </div>
-      </div>
-
-      {/* Products */}
-     
+      </section>
     </section>
   );
 }
