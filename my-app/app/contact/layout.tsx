@@ -1,4 +1,4 @@
-function contactLayout({ children }: { children: React.ReactNode }) {   
+export default function contactLayout({ children }: { children: React.ReactNode }) {
     return (
         <div className="p-4">
             {children}
