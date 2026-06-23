@@ -4,18 +4,18 @@ import React from "react";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 
 // Sub-component for the Cards
-const Card = ({ 
-  title, 
-  description, 
-  icon, 
-  className, 
+const Card = ({
+  title,
+  description,
+  icon,
+  className,
   customContent,
   imageUrl
-}: { 
-  title?: string, 
-  description?: string, 
-  icon?: React.ReactNode, 
-  className?: string, 
+}: {
+  title?: string,
+  description?: string,
+  icon?: React.ReactNode,
+  className?: string,
   customContent?: React.ReactNode,
   imageUrl?: string
 }) => {
@@ -43,10 +43,10 @@ const Card = ({
       {/* Background Image Layer */}
       {imageUrl && (
         <>
-          <img 
-            src={imageUrl} 
-            alt={title || "Card background"} 
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-0" 
+          <img
+            src={imageUrl}
+            alt={title || "Card background"}
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-0"
           />
           {/* Subtle overlay for text readability */}
           {hasTextContent && (
@@ -138,14 +138,14 @@ const BentoGridSection = () => {
       customContent: (
         <div className="flex flex-col justify-between h-full w-full">
           <div className="self-end flex gap-2">
-             <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white cursor-pointer hover:bg-white/40 transition-colors"><ChevronLeft size={16} /></div>
-             <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white cursor-pointer hover:bg-white/40 transition-colors"><ChevronRight size={16} /></div>
+            <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white cursor-pointer hover:bg-white/40 transition-colors"><ChevronLeft size={16} /></div>
+            <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white cursor-pointer hover:bg-white/40 transition-colors"><ChevronRight size={16} /></div>
           </div>
           <div className="mt-auto">
-             <span className="text-xs font-bold tracking-widest text-white/70 uppercase mb-2 block">Guiding Principles</span>
-             <h3 className="text-3xl font-extrabold text-white mb-3">Purposeful creativity</h3>
-             <p className="text-white/80 font-medium leading-relaxed mb-6">We design thoughtful, premium gifts for every occasion, blending artistry and care.</p>
-             <span className="font-bold flex items-center gap-2 text-white cursor-pointer hover:text-pink-300 transition-colors">Discover <ArrowRight size={16} /></span>
+            <span className="text-xs font-bold tracking-widest text-white/70 uppercase mb-2 block">Guiding Principles</span>
+            <h3 className="text-3xl font-extrabold text-white mb-3">Purposeful creativity</h3>
+            <p className="text-white/80 font-medium leading-relaxed mb-6">We design thoughtful, premium gifts for every occasion, blending artistry and care.</p>
+            <span className="font-bold flex items-center gap-2 text-white cursor-pointer hover:text-pink-300 transition-colors">Discover <ArrowRight size={16} /></span>
           </div>
         </div>
       ),
@@ -155,9 +155,9 @@ const BentoGridSection = () => {
       title: "",
       customContent: (
         <div className="flex flex-col items-center justify-center h-full text-white text-center">
-           <span className="text-xs font-bold tracking-widest text-white/60 uppercase mb-4 block">Core Values</span>
-           <h3 className="text-3xl font-extrabold mb-4">Quality above all</h3>
-           <p className="text-white/80 font-medium max-w-sm mx-auto">Every piece is made with ethical materials, attention to detail, and lasting craftsmanship.</p>
+          <span className="text-xs font-bold tracking-widest text-white/60 uppercase mb-4 block">Core Values</span>
+          <h3 className="text-3xl font-extrabold mb-4">Quality above all</h3>
+          <p className="text-white/80 font-medium max-w-sm mx-auto">Every piece is made with ethical materials, attention to detail, and lasting craftsmanship.</p>
         </div>
       ),
       className: "md:col-span-2 md:row-span-1 bg-[#a39a9c] border-none",
@@ -166,22 +166,22 @@ const BentoGridSection = () => {
       title: "",
       customContent: (
         <div className="flex flex-col h-full justify-between">
-           <div className="grid grid-cols-4 gap-4 mb-6 flex-1">
-              {[
-                {img: "https://images.unsplash.com/photo-1612927601601-6638404737ce?q=80&w=400&auto=format&fit=crop", title: "Handcrafts frames"},
-                {img: "https://images.unsplash.com/photo-1584285421528-7956a1b8d2eb?q=80&w=400&auto=format&fit=crop", title: "Jordan designs resin"},
-                {img: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=400&auto=format&fit=crop", title: "Morgan curates hampers"},
-                {img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=400&auto=format&fit=crop", title: "Alex oversees quality"}
-              ].map((item, i) => (
-                 <div key={i} className="flex flex-col gap-3 group/item cursor-pointer">
-                    <img src={item.img} className="w-full h-32 object-cover rounded-2xl transition-transform duration-300 group-hover/item:scale-105" alt={item.title} />
-                    <span className="text-[13px] font-medium text-gray-600 leading-tight">{item.title}</span>
-                 </div>
-              ))}
-           </div>
-           <div className="flex justify-center mt-auto">
-              <button className="px-6 py-2 rounded-full border border-gray-300 text-sm font-bold text-gray-700 hover:bg-white hover:border-gray-400 transition-colors">Our team</button>
-           </div>
+          <div className="grid grid-cols-4 gap-4 mb-6 flex-1">
+            {[
+              { img: "https://images.unsplash.com/photo-1612927601601-6638404737ce?q=80&w=400&auto=format&fit=crop", title: "Handcrafts frames" },
+              { img: "https://images.unsplash.com/photo-1584285421528-7956a1b8d2eb?q=80&w=400&auto=format&fit=crop", title: "Jordan designs resin" },
+              { img: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=400&auto=format&fit=crop", title: "Morgan curates hampers" },
+              { img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=400&auto=format&fit=crop", title: "Alex oversees quality" }
+            ].map((item, i) => (
+              <div key={i} className="flex flex-col gap-3 group/item cursor-pointer">
+                <img src={item.img} className="w-full h-32 object-cover rounded-2xl transition-transform duration-300 group-hover/item:scale-105" alt={item.title} />
+                <span className="text-[13px] font-medium text-gray-600 leading-tight">{item.title}</span>
+              </div>
+            ))}
+          </div>
+          <div className="flex justify-center mt-auto">
+            <button className="px-6 py-2 rounded-full border border-gray-300 text-sm font-bold text-gray-700 hover:bg-white hover:border-gray-400 transition-colors">Our team</button>
+          </div>
         </div>
       ),
       className: "md:col-span-2 md:row-span-1 bg-[#fcf9f2]",
@@ -204,7 +204,7 @@ const BentoGridSection = () => {
       {/* Using auto-rows to force symmetric bento box height blocks */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[240px]">
         {cardsData.map((card, index) => (
-          <Card 
+          <Card
             key={index}
             title={card.title}
             description={card.description}
@@ -258,12 +258,115 @@ const GalleryGridSection = () => {
       {/* Grid of Image Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[240px]">
         {galleryCards.map((card, index) => (
-          <Card 
+          <Card
             key={index}
             imageUrl={card.imageUrl}
             className={card.className}
           />
         ))}
+      </div>
+    </div>
+  );
+};
+
+const TestimonialSection = () => {
+  const TestimonialCard = ({ text, name, role }: { text: string, name: string, role: string }) => (
+    <div className="flex flex-col h-full justify-between border-l-2 border-[#3a2b2c]/15 pl-6 md:pl-8 py-2">
+      <p className="text-[#3a2b2c] text-lg md:text-xl font-medium leading-relaxed mb-8">
+        "{text}"
+      </p>
+      <div className="flex items-center justify-between">
+        <div>
+          <h4 className="text-[#3a2b2c] font-bold text-sm">{name}</h4>
+          <p className="text-[#3a2b2c]/60 text-xs mt-1">{role}</p>
+        </div>
+        <div className="flex items-center gap-2 text-[#3a2b2c] font-bold text-lg tracking-widest">
+          <span className="w-6 h-6 rounded-full border-2 border-[#3a2b2c] flex items-center justify-center text-xs">C</span>
+          LOGO
+        </div>
+      </div>
+    </div>
+  );
+
+  return (
+    <div className="bg-[#fdfbf6] rounded-[2.5rem] p-8 md:p-16 lg:p-20 shadow-lg">
+      <h2 className="text-5xl md:text-7xl font-medium text-[#3a2b2c] mb-16 md:mb-24 max-w-2xl leading-tight tracking-tight">
+        What our customers<br />are saying
+      </h2>
+
+      <div className="flex flex-col gap-12 md:gap-20">
+        {/* Row 1 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:w-[90%]">
+          <TestimonialCard
+            text="The attention to detail is incredible. My custom gift arrived beautifully wrapped and felt truly one-of-a-kind. I'll definitely order again!"
+            name="Riley Bennett"
+            role="Gift Recipient"
+          />
+          <TestimonialCard
+            text="Ordering was easy and the team made my vision a reality. The handmade touch made my gift stand out. Fast delivery and great service."
+            name="Casey Morgan"
+            role="Corporate Client"
+          />
+        </div>
+
+        {/* Row 2 (Shifted Right) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:w-[90%] md:ml-auto">
+          <TestimonialCard
+            text="Beautiful craftsmanship and thoughtful design. The process was smooth, and the final product exceeded my expectations. Perfect for special occasions."
+            name="Jordan Avery"
+            role="Event Planner"
+          />
+          <TestimonialCard
+            text="Each piece feels unique and made with care. The quality and customer support are unmatched. My go-to for meaningful gifts."
+            name="Taylor Quinn"
+            role="Small Business Owner"
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const CallToActionSection = () => {
+  return (
+    <div className="bg-[#fdfbf6] rounded-[2.5rem] p-8 md:p-16 lg:p-20 shadow-lg">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-8">
+        {/* Left Column */}
+        <div className="flex flex-col justify-center">
+          <h2 className="text-5xl md:text-7xl font-medium text-[#3a2b2c] mb-8 leading-[1.1] tracking-tight">
+            Connect<br />through<br />handmade<br />artistry
+          </h2>
+          <p className="text-[#3a2b2c]/70 text-lg mb-12 max-w-md leading-relaxed">
+            Our crafts are designed to inspire and bring people together. Discover the story behind each piece and see how thoughtful details make every gift special.
+          </p>
+          <div className="flex flex-wrap items-center gap-4">
+            <button className="bg-[#943644] hover:bg-[#7a2b37] text-white px-8 py-4 rounded-xl font-medium transition-colors shadow-sm">
+              Start your order
+            </button>
+            <button className="border border-[#3a2b2c]/30 hover:border-[#3a2b2c]/60 text-[#3a2b2c] px-8 py-4 rounded-xl font-medium transition-colors bg-transparent">
+              Get in touch
+            </button>
+          </div>
+        </div>
+
+        {/* Right Column */}
+        <div className="flex flex-col justify-end lg:pl-16">
+          <ul className="flex flex-col w-full">
+            {[
+              "Sustainably made with premium materials",
+              "Custom creations for every occasion",
+              "Skilled makers focused on excellence"
+            ].map((item, i) => (
+              <li
+                key={i}
+                className="flex items-center gap-6 py-6 border-b border-[#3a2b2c]/10"
+              >
+                <ArrowRight className="text-[#943644] w-5 h-5 flex-shrink-0" />
+                <span className="text-[#3a2b2c] font-medium">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );
@@ -276,7 +379,7 @@ export default function About() {
   return (
     <div className="w-full px-4 sm:px-6 lg:px-8 py-16">
       {/* The SINGLE Main Component Container wrapping everything */}
-      <div 
+      <div
         className="py-16 px-6 sm:px-12 rounded-[2.5rem] shadow-2xl border border-[#3e4741] flex flex-col gap-24"
         style={{ backgroundColor: mainBgColor }}
       >
@@ -284,10 +387,22 @@ export default function About() {
         <BentoGridSection />
 
         {/* Subtle separator line between the two sections */}
-        <div className="w-full h-px bg-white/10" />
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+
+        {/* Middle Section */}
+        <GalleryGridSection />
+
+        {/* Subtle separator line between the two sections */}
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+
+        {/* Third Section */}
+        <TestimonialSection />
+
+        {/* Subtle separator line between the two sections */}
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
         {/* Bottom Section */}
-        <GalleryGridSection />
+        <CallToActionSection />
       </div>
     </div>
   );
