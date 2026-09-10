@@ -83,94 +83,106 @@ export default function HeroSlider() {
               {/* =================================================
                   IMAGE SECTION
               ================================================= */}
+{/* =================================================
+    IMAGE SECTION
+================================================= */}
 
-              <div
-                className="
-                  relative
-                  w-full
-                  md:w-1/2
-                  h-[48vh]
-                  sm:h-[52vh]
-                  md:h-full
-                  min-h-[320px]
-                  flex
-                  items-center
-                  justify-center
-                  overflow-hidden
-                  bg-[#F8F6F1]
-                  shrink-0
-                "
-              >
-                {/* Decorative circle */}
+<div
+  className="
+    relative
+    w-full
+    md:w-1/2
+    h-[48vh]
+    sm:h-[52vh]
+    md:h-full
+    min-h-[320px]
+    flex
+    items-center
+    justify-center
+    overflow-hidden
+    bg-[#F8F6F1]
+    shrink-0
+  "
+>
+  {/* Main Circle Background */}
+  <div
+    className="
+      absolute
+      w-[70%]
+      max-w-[500px]
+      aspect-square
+      rounded-full
+      bg-white
+      shadow-sm
+    "
+  />
 
-                <div
-                  className="
-                    absolute
-                    w-[75%]
-                    max-w-[500px]
-                    aspect-square
-                    rounded-full
-                    bg-white
-                  "
-                />
+  {/* Gold Circle Border */}
+  <div
+    className="
+      absolute
+      w-[73%]
+      max-w-[530px]
+      aspect-square
+      rounded-full
+      border-2
+      border-[#D9A441]/40
+    "
+  />
 
-                {/* Decorative border */}
+  {/* PRODUCT IMAGE */}
+  <div
+    className="
+      relative
+      z-10
+      w-[66%]
+      max-w-[470px]
+      aspect-square
+      rounded-full
+      overflow-hidden
+      flex
+      items-center
+      justify-center
+    "
+  >
+    <img
+      src={category.image}
+      alt={category.name}
+      className="
+        w-full
+        h-full
+        object-contain
+        transition-transform
+        duration-700
+        hover:scale-105
+      "
+    />
+  </div>
 
-                <div
-                  className="
-                    absolute
-                    w-[78%]
-                    max-w-[530px]
-                    aspect-square
-                    rounded-full
-                    border
-                    border-[#D9A441]/30
-                  "
-                />
-
-                {/* Product */}
-
-                <img
-                  src={category.image}
-                  alt={category.name}
-                  className="
-                    relative
-                    z-10
-                    w-full
-                    h-full
-                    object-contain
-                    p-8
-                    sm:p-10
-                    md:p-12
-                    lg:p-16
-                  "
-                />
-
-                {/* Number */}
-
-                <div
-                  className="
-                    absolute
-                    z-20
-                    bottom-5
-                    left-5
-                    md:bottom-10
-                    md:left-10
-                    w-9
-                    h-9
-                    rounded-full
-                    bg-[#233603]
-                    text-white
-                    flex
-                    items-center
-                    justify-center
-                    text-xs
-                    font-semibold
-                  "
-                >
-                  0{index + 1}
-                </div>
-              </div>
+  {/* Number */}
+  <div
+    className="
+      absolute
+      z-20
+      bottom-5
+      left-5
+      md:bottom-10
+      md:left-10
+      w-9
+      h-9
+      rounded-full
+      bg-[#233603]
+      text-white
+      flex
+      items-center
+      justify-center
+      text-xs
+      font-semibold
+    "
+  >
+    0{index + 1}
+  </div>
+</div>
 
               {/* =================================================
                   CONTENT SECTION
