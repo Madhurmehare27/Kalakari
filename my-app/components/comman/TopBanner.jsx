@@ -29,10 +29,10 @@ export default function TopBanner() {
   return (
     <div
       className="w-full py-2"
-      style={{ backgroundColor: "#233603" }}
+      style={{ backgroundColor: "#FAEEE8" }}
     >
       <p
-        className={`text-center text-white text-sm md:text-base font-medium transition-opacity duration-500 ${
+        className={`text-center text-black text-sm md:text-base font-medium transition-opacity duration-500 ${
           visible ? "opacity-100" : "opacity-0"
         }`}
       >

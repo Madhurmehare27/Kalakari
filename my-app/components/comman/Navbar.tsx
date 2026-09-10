@@ -34,16 +34,19 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="sticky top-0 z-50 bg-gradient-to-b from-white/90 via-pink-50/80 to-white/70 backdrop-blur-md border-b border-pink-100 shadow-sm">
+      <nav className="sticky top-0 z-50 bg-[#F2CECE] from-white/90 via-pink-50/80 to-white/70 backdrop-blur-md border-b border-pink-100 shadow-sm p-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
 
           {/* Logo */}
-         <Link
+    <Link
   href="/"
-  className="text-2xl sm:text-3xl font-italic transition-all duration-300 hover:scale-105"
-  style={{ color: "#233603" }}
+  className="inline-flex items-center transition-all duration-300 hover:scale-105"
 >
-  Kalakari
+  <img
+    src="/logo.png"
+    alt="Kalakari"
+    className="h-12 sm:h-14 md:h-16 w-auto object-contain"
+  />
 </Link>
 
           {/* Desktop Navigation */}
@@ -122,6 +125,7 @@ const Navbar = () => {
   width="100%"
   height="48px"
   borderRadius="999px"
+  padding="0 20px"
   onClick={() => {
     window.open(
       "https://chat.whatsapp.com/HbT9krCD5qgFcbiDM6iP5W",
@@ -161,9 +165,17 @@ const Navbar = () => {
       >
         {/* Drawer Header */}
         <div className="flex items-center justify-between px-5 h-16 border-b border-pink-100 shrink-0">
-          <span className="text-2xl  italic text-[#556B2F]">
-  Kalakari
-</span>
+    
+     <Link
+  href="/"
+  className="inline-flex items-center transition-all duration-300 hover:scale-105"
+>
+  <img
+    src="/logo.png"
+    alt="Kalakari"
+    className="h-12 sm:h-14 md:h-16 w-auto object-contain"
+  />
+</Link>
           <button
             className="p-2 rounded-lg text-gray-400  transition-all duration-200"
             onClick={() => setMobileOpen(false)}

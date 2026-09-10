@@ -8,77 +8,383 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 export default function HeroSlider() {
-  const images = [
-    "/hairsband/IMG_2468.JPG.jpeg",
-    "/Key/IMG_2471.JPG.jpeg",
-    "/flowers/IMG_2472.JPG.jpeg",
-    "/Boquets/IMG_2496.JPG (1).jpeg",
-  ];
-
   const router = useRouter();
 
+  const categories = [
+    {
+      name: "Hair Bands",
+      image: "/hairsband/IMG_2468.JPG.jpeg",
+      subtitle: "Beautifully handmade",
+      description:
+        "Delicate handmade hair bands created with love, color, and creativity.",
+    },
+    {
+      name: "Keychains",
+      image: "/Key/IMG_2471.JPG.jpeg",
+      subtitle: "Made just for you",
+      description:
+        "Unique handmade keychains that add a personal touch to your everyday life.",
+    },
+    {
+      name: "Flowers",
+      image: "/flowers/IMG_2472.JPG.jpeg",
+      subtitle: "Petals with a story",
+      description:
+        "Handcrafted floral creations inspired by nature and made with love.",
+    },
+    {
+      name: "Bouquets",
+      image: "/Boquets/IMG_2496.JPG (1).jpeg",
+      subtitle: "Made with love",
+      description:
+        "Thoughtfully handcrafted bouquets that make every special moment memorable.",
+    },
+  ];
+
   return (
-    <section className="relative w-full h-screen overflow-hidden bg-[#f5f3ed]">
+    <section
+      className="
+        relative
+        w-full
+        bg-[#F8F6F1]
+        overflow-hidden
+        h-auto
+        md:h-screen
+      "
+    >
       <Swiper
         modules={[Autoplay, Pagination]}
         loop={true}
         speed={1000}
         autoplay={{
-          delay: 2500,
+          delay: 3000,
           disableOnInteraction: false,
           pauseOnMouseEnter: true,
         }}
         pagination={{
           clickable: true,
         }}
-        className="h-full w-full"
+        className="w-full h-auto md:h-full"
       >
-        {images.map((image, index) => (
-          <SwiperSlide key={index}>
-            <div className="h-full w-full flex flex-col md:flex-row">
+        {categories.map((category, index) => (
+          <SwiperSlide key={category.name} className="!h-auto md:!h-full">
+            <div
+              className="
+                relative
+                w-full
+                bg-[#F8F6F1]
+                flex
+                flex-col
+                md:flex-row
+                min-h-0
+                md:h-full
+              "
+            >
+              {/* =================================================
+                  IMAGE SECTION
+              ================================================= */}
 
-              {/* ================= IMAGE - LEFT ================= */}
-             <div
-  className="relative w-full md:w-1/2 h-[55%] md:h-full bg-center bg-no-repeat bg-contain"
-  style={{
-    backgroundImage: `url("${image}")`,
-  }}
->
-</div>
+              <div
+                className="
+                  relative
+                  w-full
+                  md:w-1/2
+                  h-[48vh]
+                  sm:h-[52vh]
+                  md:h-full
+                  min-h-[320px]
+                  flex
+                  items-center
+                  justify-center
+                  overflow-hidden
+                  bg-[#F8F6F1]
+                  shrink-0
+                "
+              >
+                {/* Decorative circle */}
 
-              {/* ================= CONTENT - RIGHT ================= */}
-              <div className="w-full md:w-1/2 h-[45%] md:h-full flex items-center justify-center px-6 sm:px-10 lg:px-20">
-                <div className="text-center md:text-left max-w-xl">
+                <div
+                  className="
+                    absolute
+                    w-[75%]
+                    max-w-[500px]
+                    aspect-square
+                    rounded-full
+                    bg-white
+                  "
+                />
 
-                  {/* Badge */}
-                  <span className="inline-block px-4 py-2 rounded-full bg-[#233603]/10 text-[#233603] text-sm md:text-base mb-5">
-                    🌿 Handmade Collection
-                  </span>
+                {/* Decorative border */}
 
-                  {/* Heading */}
-                  <h1 className="text-4xl sm:text-5xl lg:text-7xl font-serif italic text-[#233603] tracking-wide leading-tight mb-6">
-                    Handmade
-                    <br />
-                    With Love
-                  </h1>
+                <div
+                  className="
+                    absolute
+                    w-[78%]
+                    max-w-[530px]
+                    aspect-square
+                    rounded-full
+                    border
+                    border-[#D9A441]/30
+                  "
+                />
 
-                  {/* Description */}
-                  <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-8 max-w-md">
-                    Discover beautifully crafted handmade products made with
-                    care, creativity, and love.
-                  </p>
+                {/* Product */}
 
-                  {/* Button */}
-                  <button
-                    onClick={() => router.push("/gallery")}
-                    className="bg-[#233603] hover:bg-[#304a05] text-white px-8 py-4 rounded-full font-medium transition-all duration-300 hover:scale-105"
-                  >
-                    Explore Collection
-                  </button>
+                <img
+                  src={category.image}
+                  alt={category.name}
+                  className="
+                    relative
+                    z-10
+                    w-full
+                    h-full
+                    object-contain
+                    p-8
+                    sm:p-10
+                    md:p-12
+                    lg:p-16
+                  "
+                />
 
+                {/* Number */}
+
+                <div
+                  className="
+                    absolute
+                    z-20
+                    bottom-5
+                    left-5
+                    md:bottom-10
+                    md:left-10
+                    w-9
+                    h-9
+                    rounded-full
+                    bg-[#233603]
+                    text-white
+                    flex
+                    items-center
+                    justify-center
+                    text-xs
+                    font-semibold
+                  "
+                >
+                  0{index + 1}
                 </div>
               </div>
 
+              {/* =================================================
+                  CONTENT SECTION
+              ================================================= */}
+
+              <div
+                className="
+                  relative
+                  w-full
+                  md:w-1/2
+                  min-h-[420px]
+                  md:min-h-0
+                  md:h-full
+                  flex
+                  items-center
+                  justify-center
+                  px-6
+                  py-12
+                  sm:px-10
+                  sm:py-14
+                  md:px-10
+                  md:py-10
+                  lg:px-16
+                  xl:px-24
+                "
+              >
+                <div className="w-full max-w-xl text-center md:text-left">
+
+                  {/* =================================================
+                      LOGO
+                  ================================================= */}
+
+                  <div className="flex justify-center md:justify-start mb-5">
+                    <img
+                      src="/banner.png"
+                      alt="Kalakari"
+                      className="
+                        w-[150px]
+                        sm:w-[180px]
+                        md:w-[210px]
+                        lg:w-[240px]
+                        h-auto
+                        object-contain
+                      "
+                    />
+                  </div>
+
+                  {/* =================================================
+                      SMALL TITLE
+                  ================================================= */}
+
+                  <div className="flex items-center justify-center md:justify-start gap-3 mb-4">
+                    <span className="w-8 sm:w-10 h-[1px] bg-[#D9A441]" />
+
+                    <span
+                      className="
+                        text-[10px]
+                        sm:text-xs
+                        md:text-sm
+                        font-semibold
+                        uppercase
+                        tracking-[0.18em]
+                        text-[#233603]
+                      "
+                    >
+                      {category.subtitle}
+                    </span>
+                  </div>
+
+                  {/* =================================================
+                      CATEGORY
+                  ================================================= */}
+
+                  <h1
+                    className="
+                      text-4xl
+                      sm:text-5xl
+                      md:text-5xl
+                      lg:text-6xl
+                      xl:text-7xl
+                      font-serif
+                      font-medium
+                      text-[#233603]
+                      leading-tight
+                      tracking-tight
+                      mb-4
+                    "
+                  >
+                    {category.name}
+                  </h1>
+
+                  {/* =================================================
+                      DECORATIVE LINE
+                  ================================================= */}
+
+                  <div className="flex items-center justify-center md:justify-start gap-3 mb-5">
+                    <span className="w-2 h-2 rounded-full bg-[#D9A441]" />
+
+                    <span className="w-12 h-[1px] bg-[#D9A441]/60" />
+
+                    <span className="text-[#D9A441] text-sm">
+                      ✦
+                    </span>
+                  </div>
+
+                  {/* =================================================
+                      DESCRIPTION
+                  ================================================= */}
+
+                  <p
+                    className="
+                      text-gray-600
+                      text-sm
+                      sm:text-base
+                      md:text-lg
+                      leading-relaxed
+                      max-w-md
+                      mx-auto
+                      md:mx-0
+                      mb-7
+                    "
+                  >
+                    {category.description}
+                  </p>
+
+                  {/* =================================================
+                      BUTTON
+                  ================================================= */}
+
+                  <div className="flex justify-center md:justify-start">
+                    <button
+                      onClick={() =>
+                        router.push(
+                          `/gallery?category=${encodeURIComponent(
+                            category.name
+                          )}`
+                        )
+                      }
+                      className="
+                        group
+                        inline-flex
+                        items-center
+                        gap-3
+                        bg-[#233603]
+                        hover:bg-[#304a05]
+                        text-white
+                        px-7
+                        sm:px-8
+                        py-3.5
+                        sm:py-4
+                        rounded-full
+                        text-sm
+                        sm:text-base
+                        font-medium
+                        shadow-lg
+                        shadow-[#233603]/10
+                        transition-all
+                        duration-300
+                        hover:-translate-y-1
+                        active:scale-95
+                      "
+                    >
+                      Explore Collection
+
+                      <span
+                        className="
+                          flex
+                          items-center
+                          justify-center
+                          w-7
+                          h-7
+                          rounded-full
+                          bg-white/15
+                          group-hover:translate-x-1
+                          transition-transform
+                        "
+                      >
+                        →
+                      </span>
+                    </button>
+                  </div>
+
+                  {/* =================================================
+                      BOTTOM DETAILS
+                  ================================================= */}
+
+                  <div
+                    className="
+                      mt-7
+                      flex
+                      flex-wrap
+                      justify-center
+                      md:justify-start
+                      items-center
+                      gap-x-4
+                      gap-y-2
+                      text-[10px]
+                      sm:text-xs
+                      text-gray-400
+                    "
+                  >
+                    <span>Handcrafted</span>
+
+                    <span className="w-1 h-1 rounded-full bg-[#D9A441]" />
+
+                    <span>Made with love</span>
+
+                    <span className="w-1 h-1 rounded-full bg-[#D9A441]" />
+
+                    <span>Unique pieces</span>
+                  </div>
+
+                </div>
+              </div>
             </div>
           </SwiperSlide>
         ))}

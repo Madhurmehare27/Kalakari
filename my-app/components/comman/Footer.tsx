@@ -5,16 +5,23 @@ import { Mail, Phone } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#233603] text-white">
+    <footer className="bg-[#F2CECE] text-white">
       <div className="max-w-7xl mx-auto px-4 py-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
           
           {/* Brand */}
           <div>
-            <h2 className="text-3xl font-bold italic tracking-wide">
-              Kalakari
-            </h2>
-
+               <Link
+  href="/"
+  className="inline-flex items-center transition-all duration-300 hover:scale-105"
+>
+  <img
+    src="/logo.png"
+    alt="Kalakari"
+    className="h-12 sm:h-14 md:h-16 w-auto object-contain"
+  />
+</Link>
+          
             <p className="mt-2 text-sm text-white/80 italic">
               Handmade gifts, flower crafts & personalized creations made with
               love.

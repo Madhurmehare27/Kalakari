@@ -4,7 +4,7 @@ import Link from "next/link";
 import FullScreenVideo from "@/components/comman/FullScreenVideo";
 import ProductList from "@/components/comman/Productlist";
 import CraftFlow from "@/components/comman/CraftFlow";
-
+import Image from "next/image";
 export default function HeroSection() {
   // Circular navigation categories
   const navCategories = [
@@ -81,78 +81,100 @@ export default function HeroSection() {
       {/* Circular Category Navigation */}
       {/* ============================= */}
 
-     <div className="py-6">
-  <h1 className="text-center text-2xl md:text-3xl font-bold text-[#233603] mb-6">
+   
+
+  <h1 className="text-center text-2xl md:text-3xl font-bold text-[#233603] mt-6 mb-6">
     Shop by Collection ----- !
   </h1>
-<div className="flex justify-start md:justify-center gap-6 md:gap-10 overflow-x-auto px-4 py-2 scrollbar-hide">
-  {navCategories.map((category) => (
-    <a
-      key={category.name}
-      href={category.link}
-      className="flex-shrink-0 flex flex-col items-center w-[100px] group transition-all duration-300 ease-out hover:-translate-y-2"
-    >
-      {/* Circle */}
-      <div
-        className="
-          w-24 h-24
-          rounded-full
-          p-1
-          bg-gradient-to-br from-red-500 to-orange-400
-          shadow-md
-          transition-all duration-300 ease-out
-          group-hover:shadow-xl
-          group-hover:shadow-orange-200/60
-          group-hover:scale-110
-          group-hover:from-orange-400
-          group-hover:to-red-500
-        "
+  <div> 
+  <div className="flex items-center gap-4 overflow-hidden">
+
+  {/* Logo */}
+  {/* <Link
+    href="/"
+    className="flex-shrink-0 transition-transform duration-300 hover:scale-105"
+  >
+    <Image
+      src="/logo.png"
+      alt="Kalakari"
+      width={140}
+      height={50}
+      priority
+      className="h-auto w-auto object-contain"
+    />
+  </Link> */}
+
+  {/* Categories */}
+  <div className="flex flex-1 justify-start md:justify-center gap-6 md:gap-10 overflow-x-auto px-4 py-2 scrollbar-hide">
+    {navCategories.map((category) => (
+      <a
+        key={category.name}
+        href={category.link}
+        className="flex-shrink-0 flex flex-col items-center w-[100px] group transition-all duration-300 ease-out hover:-translate-y-2"
       >
-        {/* Inner white border */}
+        {/* Circle */}
         <div
           className="
-            w-full h-full
+            w-24 h-24
             rounded-full
-            bg-white
-            p-[3px]
-            transition-all duration-300
-            group-hover:p-[4px]
+            p-1
+            bg-gradient-to-br from-red-500 to-orange-400
+            shadow-md
+            transition-all duration-300 ease-out
+            group-hover:shadow-xl
+            group-hover:shadow-orange-200/60
+            group-hover:scale-110
+            group-hover:from-orange-400
+            group-hover:to-red-500
           "
         >
-          {/* Image */}
-          <img
-            src={category.image}
-            alt={category.name}
+          <div
             className="
               w-full h-full
               rounded-full
-              object-cover
-              transition-all duration-500 ease-out
-              group-hover:scale-105
+              bg-white
+              p-[3px]
+              transition-all duration-300
+              group-hover:p-[4px]
             "
-          />
+          >
+            <img
+              src={category.image}
+              alt={category.name}
+              className="
+                w-full h-full
+                rounded-full
+                object-cover
+                transition-all duration-500 ease-out
+                group-hover:scale-105
+              "
+            />
+          </div>
         </div>
-      </div>
 
-      {/* Category Name */}
-      <span
-        className="
-          mt-3
-          text-sm
-          font-medium
-          text-black
-          whitespace-nowrap
-          transition-all duration-300
-          group-hover:text-[#233603]
-          group-hover:font-semibold
-        "
-      >
-        {category.name}
-      </span>
-    </a>
-  ))}
+        {/* Category Name */}
+        <span
+          className="
+            mt-3
+            text-sm
+            font-medium
+            text-black
+            whitespace-nowrap
+            transition-all duration-300
+            group-hover:text-[#233603]
+            group-hover:font-semibold
+          "
+        >
+          {category.name}
+        </span>
+      </a>
+    ))}
+  </div>
+
 </div>
+
 </div>
+
       {/* ============================= */}
       {/* Hero Video */}
       {/* ============================= */}
