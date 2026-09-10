@@ -6,111 +6,185 @@ import ProductList from "@/components/comman/Productlist";
 import CraftFlow from "@/components/comman/CraftFlow";
 
 export default function HeroSection() {
-  const categories = [
+  // Circular navigation categories
+  const navCategories = [
     {
-      name: "Flower Crafts",
-      slug: "flower-crafts",
+      name: "Bouquet",
+      link: "/gallery",
       image:
-        "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=800&q=80",
+        "/Boquets/IMG_2461.JPG.jpeg",
     },
     {
-      name: "Resin Art",
-      slug: "resin-art",
+      name: "Hair Clips",
+      link: "/gallery",
       image:
-        "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=800&q=80",
+        "/hairsband/IMG_2442.JPG.jpeg",
     },
     {
-      name: "Gift Boxes",
-      slug: "gift-boxes",
+      name: "Flowers",
+      link: "/gallery",
       image:
-        "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=800&q=80",
+        "/flowers/IMG_2472.JPG.jpeg",
     },
     {
-      name: "Home Decor",
-      slug: "home-decor",
+      name: "Keychains",
+      link: "/gallery",
       image:
-        "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=800&q=80",
+        "/Key/IMG_2471.JPG.jpeg",
+    },
+    {
+      name: "Hair Bands",
+      link: "/gallery",
+      image:
+        "/hairsband/IMG_2468.JPG.jpeg",
+    },
+    {
+      name: "Aasan",
+      link: "gallery",
+      image:
+        "/Aasan/IMG_2441.JPG.jpeg",
     },
   ];
 
+  // Main category cards
+  // const categories = [
+  //   {
+  //     name: "Flower Crafts",
+  //     slug: "flower-crafts",
+  //     image:
+  //       "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=800&q=80",
+  //   },
+  //   {
+  //     name: "Resin Art",
+  //     slug: "resin-art",
+  //     image:
+  //       "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=800&q=80",
+  //   },
+  //   {
+  //     name: "Gift Boxes",
+  //     slug: "gift-boxes",
+  //     image:
+  //       "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=800&q=80",
+  //   },
+  //   {
+  //     name: "Home Decor",
+  //     slug: "home-decor",
+  //     image:
+  //       "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=800&q=80",
+  //   },
+  // ];
+
   return (
     <section className="bg-[#F8F6F1]">
-      <div className=" py-4">
-        <div>
-          <div className="">
-            <a
-              href="#products"
-              className="px-5 py-2 rounded-full text-sm font-medium text-[#233603] hover:bg-[#233603] hover:text-white transition"
-            >
-              Products
-            </a>
 
-            <a
-              href="#journey"
-              className="px-5 py-2 rounded-full text-sm font-medium text-[#233603] hover:bg-[#233603] hover:text-white transition"
-            >
-              Journey
-            </a>
+      {/* ============================= */}
+      {/* Circular Category Navigation */}
+      {/* ============================= */}
 
-            <a
-              href="#categories"
-              className="px-5 py-2 rounded-full text-sm font-medium text-[#233603] hover:bg-[#233603] hover:text-white transition"
-            >
-              Categories
-            </a>
-          </div>
+     <div className="py-6">
+  <h1 className="text-center text-2xl md:text-3xl font-bold text-[#233603] mb-6">
+    Shop by Collection ----- !
+  </h1>
+<div className="flex justify-start md:justify-center gap-6 md:gap-10 overflow-x-auto px-4 py-2 scrollbar-hide">
+  {navCategories.map((category) => (
+    <a
+      key={category.name}
+      href={category.link}
+      className="flex-shrink-0 flex flex-col items-center w-[100px] group transition-all duration-300 ease-out hover:-translate-y-2"
+    >
+      {/* Circle */}
+      <div
+        className="
+          w-24 h-24
+          rounded-full
+          p-1
+          bg-gradient-to-br from-red-500 to-orange-400
+          shadow-md
+          transition-all duration-300 ease-out
+          group-hover:shadow-xl
+          group-hover:shadow-orange-200/60
+          group-hover:scale-110
+          group-hover:from-orange-400
+          group-hover:to-red-500
+        "
+      >
+        {/* Inner white border */}
+        <div
+          className="
+            w-full h-full
+            rounded-full
+            bg-white
+            p-[3px]
+            transition-all duration-300
+            group-hover:p-[4px]
+          "
+        >
+          {/* Image */}
+          <img
+            src={category.image}
+            alt={category.name}
+            className="
+              w-full h-full
+              rounded-full
+              object-cover
+              transition-all duration-500 ease-out
+              group-hover:scale-105
+            "
+          />
         </div>
       </div>
-      {/* Hero Section */}
+
+      {/* Category Name */}
+      <span
+        className="
+          mt-3
+          text-sm
+          font-medium
+          text-black
+          whitespace-nowrap
+          transition-all duration-300
+          group-hover:text-[#233603]
+          group-hover:font-semibold
+        "
+      >
+        {category.name}
+      </span>
+    </a>
+  ))}
+</div>
+</div>
+      {/* ============================= */}
+      {/* Hero Video */}
+      {/* ============================= */}
+
       <FullScreenVideo />
 
-      {/* Floating Navigation */}
-
+      {/* ============================= */}
       {/* Products */}
+      {/* ============================= */}
+
       <section id="products">
         <ProductList />
       </section>
 
+      {/* ============================= */}
       {/* Journey */}
+      {/* ============================= */}
+
       <section id="journey">
         <CraftFlow />
       </section>
-      <section id="categories">
-        {/* Categories */}
-        <div className="grid grid-cols-2 gap-2 md:gap-2 py-4">
-          {categories.map((category, index) => (
-            <Link
-              key={category.slug}
-              href={`/categories/${category.slug}`}
-              className={`block ${
-                index % 2 === 0 ? "space-y-4" : "pt-12 space-y-4"
-              }`}
-            >
-              <div className="relative overflow-hidden rounded-3xl group cursor-pointer">
-                <img
-                  src={category.image}
-                  alt={category.name}
-                  className="h-60 md:h-80 w-full object-cover shadow-xl transition-transform duration-500 group-hover:scale-110"
-                />
 
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-black/30 z-10" />
+      {/* ============================= */}
+      {/* Categories */}
+      {/* ============================= */}
 
-                {/* Text */}
-                <div className="absolute bottom-5 left-5 z-20">
-                  <h3 className="text-white text-lg md:text-2xl font-bold">
-                    {category.name}
-                  </h3>
+      {/* <section id="categories"> */}
 
-                  <h1 className="text-white/90 text-sm mt-1">
-                    View Collection →
-                  </h1>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
+       
+
       </section>
-    </section>
+
+    // </section>
   );
 }

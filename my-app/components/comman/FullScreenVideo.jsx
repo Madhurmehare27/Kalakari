@@ -2,69 +2,83 @@
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
-
-
 import { useRouter } from "next/navigation";
+
 import "swiper/css";
 import "swiper/css/pagination";
 
 export default function HeroSlider() {
-const images = [
-  "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=1600&q=80", // Flowers
-  "https://images.unsplash.com/photo-1468327768560-75b778cbb551?w=1600&q=80", // Flower bouquet
-  "https://images.unsplash.com/photo-1526045478516-99145907023c?w=1600&q=80", // Floral arrangement
-  "https://images.unsplash.com/photo-1563241527-3004b7be0ffd?w=1600&q=80", // Craft flowers
-];
+  const images = [
+    "/hairsband/IMG_2468.JPG.jpeg",
+    "/Key/IMG_2471.JPG.jpeg",
+    "/flowers/IMG_2472.JPG.jpeg",
+    "/Boquets/IMG_2496.JPG (1).jpeg",
+  ];
+
   const router = useRouter();
 
   return (
-    <section className="relative h-screen w-full">
+    <section className="relative w-full h-screen overflow-hidden bg-[#f5f3ed]">
       <Swiper
         modules={[Autoplay, Pagination]}
         loop={true}
-        speed={1200}
+        speed={1000}
         autoplay={{
-          delay: 1000,
+          delay: 2500,
           disableOnInteraction: false,
           pauseOnMouseEnter: true,
         }}
         pagination={{
           clickable: true,
         }}
-        className="h-full"
+        className="h-full w-full"
       >
         {images.map((image, index) => (
           <SwiperSlide key={index}>
-            <div className="relative h-screen w-full">
-              {/* Background Image */}
-              <img
-                src={image}
-                alt={`Slide ${index + 1}`}
-                className="w-full h-full object-cover"
-              />
+            <div className="h-full w-full flex flex-col md:flex-row">
 
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-black/50" />
+              {/* ================= IMAGE - LEFT ================= */}
+             <div
+  className="relative w-full md:w-1/2 h-[55%] md:h-full bg-center bg-no-repeat bg-contain"
+  style={{
+    backgroundImage: `url("${image}")`,
+  }}
+>
+</div>
 
-              {/* Content */}
-              <div className="absolute inset-0 z-10 flex items-center justify-center">
-                <div className="text-center text-white px-6">
-                  <span className="inline-block px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm text-sm md:text-base mb-6">
+              {/* ================= CONTENT - RIGHT ================= */}
+              <div className="w-full md:w-1/2 h-[45%] md:h-full flex items-center justify-center px-6 sm:px-10 lg:px-20">
+                <div className="text-center md:text-left max-w-xl">
+
+                  {/* Badge */}
+                  <span className="inline-block px-4 py-2 rounded-full bg-[#233603]/10 text-[#233603] text-sm md:text-base mb-5">
                     🌿 Handmade Collection
                   </span>
 
-                  <h1 className="text-4xl md:text-7xl font-italic tracking-wide mb-6">
-  Handmade With Love
-</h1>
+                  {/* Heading */}
+                  <h1 className="text-4xl sm:text-5xl lg:text-7xl font-serif italic text-[#233603] tracking-wide leading-tight mb-6">
+                    Handmade
+                    <br />
+                    With Love
+                  </h1>
 
+                  {/* Description */}
+                  <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-8 max-w-md">
+                    Discover beautifully crafted handmade products made with
+                    care, creativity, and love.
+                  </p>
+
+                  {/* Button */}
                   <button
-  onClick={() => router.push("/gallery")}
-  className="bg-[#233603] hover:bg-[#304a05] text-white px-8 py-4 rounded-full font-medium transition-all duration-300"
->
-  Order Now
-</button>
+                    onClick={() => router.push("/gallery")}
+                    className="bg-[#233603] hover:bg-[#304a05] text-white px-8 py-4 rounded-full font-medium transition-all duration-300 hover:scale-105"
+                  >
+                    Explore Collection
+                  </button>
+
                 </div>
               </div>
+
             </div>
           </SwiperSlide>
         ))}

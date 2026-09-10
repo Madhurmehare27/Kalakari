@@ -74,9 +74,9 @@ export default function CraftFlow() {
 
                 <div className="relative">
 
-                  <div className="absolute inset-0 rounded-full bg-[#556B2F] animate-ping opacity-30" />
+                  <div className="absolute inset-0 rounded-full bg-[#F4A261] animate-ping opacity-30" />
 
-                  <div className="relative h-6 w-6 rounded-full bg-[#556B2F] shadow-[0_0_20px_#556B2F]" />
+                  <div className="relative h-6 w-6 rounded-full bg-[#F4A261] shadow-[0_0_20px_#556B2F]" />
 
                 </div>
 

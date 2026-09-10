@@ -3,7 +3,7 @@
 import ProductList from "@/components/comman/Productlist";
 export default function Gallery() {
   return (
-    <main className="min-h-screen bg-gradient-to-b  via-white to-white">
+    <main className="min-h-screen ">
       {/* Product Section */}
       <section className="pb-10">
         <div className="max-w-7xl mx-auto px-6">
