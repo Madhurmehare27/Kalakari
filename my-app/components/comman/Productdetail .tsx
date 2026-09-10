@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
 import type { Product } from "@/lib/products";
@@ -29,12 +29,16 @@ export default function ProductDetail({ product }: { product: Product }) {
 
       {/* ── Hero Image ── */}
       <div className="relative w-full h-72 md:h-96 bg-[#F0EDE5] overflow-hidden">
-        <img
-          src={product.image}
-          alt={product.name}
-          className="w-full h-full object-cover"
-        />
-
+        
+<div className="relative w-90  h-90 mx-auto rounded-xl bg-gray-100">
+  <Image
+    src={product.image}
+    alt={product.name}
+    fill
+    className="object-cover rounded-xl"
+    quality={100}
+  />
+</div>
         {/* Back button */}
         <Link
           href="/"

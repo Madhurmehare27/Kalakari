@@ -1,4 +1,4 @@
-import { getProductById, products } from "@/lib/products";
+import { getProductById,products} from "@/lib/products";
 import ProductDetail from "@/components/comman/Productdetail ";
 import { notFound } from "next/navigation";
  
