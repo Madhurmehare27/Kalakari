@@ -165,7 +165,7 @@ const Navbar = () => {
   Kalakari
 </span>
           <button
-            className="p-2 rounded-lg text-gray-400 hover:text-pink-600 hover:bg-pink-50 transition-all duration-200"
+            className="p-2 rounded-lg text-gray-400  transition-all duration-200"
             onClick={() => setMobileOpen(false)}
             aria-label="Close menu"
           >
@@ -180,14 +180,14 @@ const Navbar = () => {
               key={link.href}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="flex items-center justify-between px-4 py-3.5 rounded-xl text-gray-700 font-medium hover:bg-pink-50 hover:text-pink-600 transition-all duration-200 text-sm"
+              className="flex items-center justify-between px-4 py-3.5 rounded-xl text-gray-700 font-medium   transition-all duration-200 text-sm"
             >
               {link.label}
               <ChevronDown size={14} className="-rotate-90 text-gray-300" />
             </Link>
           ))}
 
-          <div className="h-px bg-pink-50 my-2 mx-4" />
+          <div className="h-px  my-2 mx-4" />
 
           {/* Shop Accordion */}
           <div>
@@ -227,7 +227,7 @@ const Navbar = () => {
         </div>
 
         {/* Drawer Footer CTA */}
-        <div className="shrink-0 px-5 py-4 border-t border-pink-100">
+        <div className="shrink-0 px-5 py-4 border-t">
         <Button
   bgColor="#233603"
   textColor="#ffffff"

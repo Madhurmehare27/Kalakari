@@ -3,6 +3,8 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 
+
+import { useRouter } from "next/navigation";
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -13,6 +15,7 @@ const images = [
   "https://images.unsplash.com/photo-1526045478516-99145907023c?w=1600&q=80", // Floral arrangement
   "https://images.unsplash.com/photo-1563241527-3004b7be0ffd?w=1600&q=80", // Craft flowers
 ];
+  const router = useRouter();
 
   return (
     <section className="relative h-screen w-full">
@@ -55,16 +58,11 @@ const images = [
 </h1>
 
                   <button
-                    onClick={() =>
-                      window.open(
-                        "https://wa.me/917820941097",
-                        "_blank"
-                      )
-                    }
-                    className="bg-[#233603] hover:bg-[#304a05] text-white px-8 py-4 rounded-full font-medium transition-all duration-300"
-                  >
-                    Order Now
-                  </button>
+  onClick={() => router.push("/gallery")}
+  className="bg-[#233603] hover:bg-[#304a05] text-white px-8 py-4 rounded-full font-medium transition-all duration-300"
+>
+  Order Now
+</button>
                 </div>
               </div>
             </div>
