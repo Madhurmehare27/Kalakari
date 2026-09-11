@@ -169,7 +169,7 @@ export const products: Product[] = [
     description:
       "A premium handmade designer hair band featuring elegant details and a comfortable fit.",
     sizes: ["Standard"],
-    image: "/hairband/IMG_2442.JPG.jpeg",
+    image: "https://res.cloudinary.com/taljr7bj/image/upload/v1789148120/IMG_2437.png",
     category: "Hair Bands",
   },
 
@@ -185,7 +185,7 @@ export const products: Product[] = [
     description:
       "A beautiful handmade flower gift crafted with care. Perfect for birthdays, celebrations, and thoughtful surprises.",
     sizes: ["Small", "Medium"],
-    image: "/flowers/IMG_2472.JPG.jpeg",
+    image: "https://res.cloudinary.com/taljr7bj/image/upload/f_auto,q_auto/IMG_2437",
     category: "Flowers",
   },
 
@@ -201,7 +201,7 @@ export const products: Product[] = [
     description:
       "A stylish handmade resin keychain with a unique design. Customize the colors and create a special accessory for yourself or someone you love.",
     sizes: ["Standard"],
-    image: "/key/IMG_2488.JPG.jpeg",
+    image: "https://res.cloudinary.com/taljr7bj/image/upload/f_auto,q_auto/IMG_2440",
     category: "Keychains",
   },
 ];

@@ -36,7 +36,7 @@ export default function HeroSection() {
       name: "Hair Bands",
       link: "/gallery",
       image:
-        "/hairsband/IMG_2468.JPG.jpeg",
+        "https://res.cloudinary.com/taljr7bj/image/upload/v1789148120/IMG_2437.png",
     },
     {
       name: "Aasan",
