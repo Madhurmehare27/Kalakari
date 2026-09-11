@@ -6,7 +6,7 @@ import {
 } from "next/font/google";
 
 import "./globals.css";
-
+import { Analytics } from '@vercel/analytics/next';
 import Navbar from "@/components/comman/Navbar";
 import Footer from "@/components/comman/Footer";
 import TopBanner from "@/components/comman/TopBanner";
@@ -53,6 +53,8 @@ export default function RootLayout({
         </main>
 
         <Footer />
+
+         <Analytics />
       </body>
     </html>
   );
