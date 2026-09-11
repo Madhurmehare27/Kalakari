@@ -10,6 +10,9 @@ import { Analytics } from '@vercel/analytics/next';
 import Navbar from "@/components/comman/Navbar";
 import Footer from "@/components/comman/Footer";
 import TopBanner from "@/components/comman/TopBanner";
+import { metric } from '@vercel/functions';
+
+metric('query.duration_ms', 100, { plan: 'pro' });
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
